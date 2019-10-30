@@ -9,12 +9,13 @@
 import API from "./data.js";
 import renderDom from "./entriesDOM.js";
 
+
 // Targeting or Obtaining a reference to DOM with variables declared for later use for input fields
 
 // const dateEntryVar = document.querySelector('#dateEntryInput');
 // const conceptEntryVar = document.querySelector('#conceptEntryInput');
 // const journalEntryVar = document.querySelector('#journalEntryInput');
-const containerForEntries = document.querySelector('#testFieldSetDom');
+// const containerForEntries = document.querySelector('#testFieldSetDom');
 
 // THis code calls the API and logs the response with RenderDom setup on another page
 
@@ -28,22 +29,21 @@ API.getJournalEntries()
 // const saveJournalEntry = () => 
     
 document.querySelector('#recordEntryButton').addEventListener("click", event => {
+    // These are obtaining references and defining them as variables so that I can Collect UserInput
+    const inputObject = {
+     date : document.querySelector('#dateEntryInput').value,
+     concept : document.querySelector('#conceptEntryInput').value,
+     journal : document.querySelector('#journalEntryInput').value,
+     mood : document.querySelector('#moodEntryInput').value,   
+    }
     
-    const dateEntryVar = document.querySelector('#dateEntryInput').value;
-    
-    const conceptEntryVar = document.querySelector('#conceptEntryInput').value;
-    
-    const journalEntryVar = document.querySelector('#journalEntryInput').value;
-    
+// Trying to create Code that SaveJournalEntry (json-server returns it) then render it on the dom
+// console.log(inputObject)
 
-    containerForEntries.innerHTML += `
-        <section>
-            <h3>${journalEntryVar}</h3>
-            <h3>${conceptEntryVar}</h3>
-            <h3>${dateEntryVar}</h3>    
-            </section>
-    `
-
+    API.saveJournalEntry(inputObject)
+        .then(API.getJournalEntries)
+        .then(entries => renderDom.renderJournalEntries(entries))
+    
 });
     
 
