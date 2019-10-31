@@ -12,3 +12,6 @@ const entryManager = {
     `
   }
 }
+
+// This exports the function and allows it to be used outside with import
+export default entryManager;
