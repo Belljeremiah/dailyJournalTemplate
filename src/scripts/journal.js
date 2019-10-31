@@ -26,7 +26,7 @@ API.getJournalEntries()
 
 // attempting to get a reference to the dom and then tie it to the event listener for click of save entry.
 
-// const saveJournalEntry = () => 
+// This is my factory function but I need to make it more modular by seperating out my factory function and calling it outside of this container.
     
 document.querySelector('#recordEntryButton').addEventListener("click", event => {
     // These are obtaining references and defining them as variables so that I can Collect UserInput
