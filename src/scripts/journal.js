@@ -21,30 +21,40 @@ import renderDom from "./entriesDOM.js";
 
 
 API.getJournalEntries()
-.then(response => renderDom.renderJournalEntries(response))
+    .then(response => renderDom.renderJournalEntries(response))
 
 
 // attempting to get a reference to the dom and then tie it to the event listener for click of save entry.
 
 // This is my factory function but I need to make it more modular by seperating out my factory function and calling it outside of this container.
-    
+
 document.querySelector('#recordEntryButton').addEventListener("click", event => {
     // These are obtaining references and defining them as variables so that I can Collect UserInput
     const inputObject = {
-     date : document.querySelector('#dateEntryInput').value,
-     concept : document.querySelector('#conceptEntryInput').value,
-     journal : document.querySelector('#journalEntryInput').value,
-     mood : document.querySelector('#moodEntryInput').value,   
+        date: document.querySelector('#dateEntryInput').value,
+        concept: document.querySelector('#conceptEntryInput').value,
+        journal: document.querySelector('#journalEntryInput').value,
+        mood: document.querySelector('#moodEntryInput').value,
     }
-    
-// Trying to create Code that SaveJournalEntry (json-server returns it) then render it on the dom
-// console.log(inputObject)
+
+    // Trying to create Code that SaveJournalEntry (json-server returns it) then render it on the dom
+    // console.log(inputObject)
 
     API.saveJournalEntry(inputObject)
         .then(API.getJournalEntries)
         .then(entries => renderDom.renderJournalEntries(entries))
-    
-});
-    
 
-    
+});
+
+
+// Me and James and Charles built this paired coding and it is a function with a reference 
+const moodRadio = document.getElementsByName("moodName");
+moodRadio.forEach(radioButton => {
+            radioButton.addEventListener("click", event => {
+                const updateMoodRadio = event.target.value
+                API.getJournalEntries() {
+                    .then(entry => entry.filter())
+                }
+
+            })
+        });
