@@ -12,7 +12,7 @@ const entryManager = {
         <p>${journalEntry.mood}</p>
         <p>${journalEntry.date}</p>
         <div>
-          <button id="deleteEntry">
+          <button id="deleteEntry--${journalEntry.id}">
             Delete Entry
             </button>
         </div>

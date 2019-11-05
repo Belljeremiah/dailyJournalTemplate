@@ -5,7 +5,7 @@
     Change the fake variable names below to what they should be
     to get the data and display it.
 */
-
+import events from "./events.js";
 import API from "./data.js";
 import renderDom from "./entriesDOM.js";
 
@@ -71,4 +71,5 @@ moodRadio.forEach(radioButton => {
             })
 
         });
-            
+
+events.registerDeleteListener()
