@@ -12,6 +12,12 @@ const API = {
       return fetch(URLforAPI)
           .then(response => response.json())
   },
+
+  // THis is my attempt to make a new moodJournalEntries category to call
+  moodJournalEntries (selectMoodRadio) {
+    return fetch("http://localhost:3000/entries?mood=${selectMoodRadio}")
+      .then(response => response.json())
+  },
   
   // This is a saveJOurnalEntry fetch and object that I made using code from the examples and steve Brownlee and Kristen Norris' Lessons
   // IT takes an argument of entry and then returns a fetch and enacts the method POST to post onto the dom IT also makes the JSON response into a string for Entry
