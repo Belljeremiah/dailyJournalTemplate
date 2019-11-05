@@ -49,12 +49,23 @@ document.querySelector('#recordEntryButton').addEventListener("click", event => 
 
 // Me and James and Charles built this paired coding and it is a function with a reference 
 const moodRadio = document.getElementsByName("moodName");
-moodRadio.forEach(radioButton => {
-            radioButton.addEventListener("click", event => {
-                const updateMoodRadio = event.target.value
-                API.getJournalEntries() {
-                    .then(entry => entry.filter())
-                }
 
-            })
-        });
+moodRadio.forEach(radioButton => {
+            
+    radioButton.addEventListener("click", event => {
+                const updateMoodRadio = event.target.value
+                
+                // console.log(updateMoodRadio)
+                
+                API.getJournalEntries() 
+                    
+                .then((entries) => {
+                    
+                        let moodEntriesFiltered = entries.filter(entry => 
+                            
+                        entry.mood === updateMoodRadio)
+                //         
+                        renderDom.renderJournalEntries(moodEntriesFiltered)
+                //         
+                })
+            });
