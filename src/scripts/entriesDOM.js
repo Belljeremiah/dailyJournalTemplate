@@ -21,6 +21,7 @@ const renderDom = {
       
     const entryHtml = entryManager.makeJournalEntryComponent(entry);
       
+    // THis tells it to iterate through each one
     HtmlForAllEntries += entryHtml;
     
   })

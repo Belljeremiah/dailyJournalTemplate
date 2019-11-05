@@ -1,3 +1,6 @@
+
+// THis is a factory function that generates my dynamic content and creates new objects for me when provided input and puts on dom
+
 const entryManager = {
 
   makeJournalEntryComponent(journalEntry) {
@@ -8,6 +11,11 @@ const entryManager = {
         <p>${journalEntry.entry}</p>
         <p>${journalEntry.mood}</p>
         <p>${journalEntry.date}</p>
+        <div>
+          <button id="deleteEntry">
+            Delete Entry
+            </button>
+        </div>
       </section>
     `
   }

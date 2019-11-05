@@ -68,4 +68,7 @@ moodRadio.forEach(radioButton => {
                         renderDom.renderJournalEntries(moodEntriesFiltered)
                 //         
                 })
-            });
+            })
+
+        });
+            
